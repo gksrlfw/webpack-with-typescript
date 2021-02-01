@@ -1,5 +1,5 @@
-import Page from "../core/Page";
+// import Page from "../core/Page";
 
-export default interface PageConstructor {
-    new(target: HTMLElement): Page;
-}
+// export default interface PageConstructor {
+//     new(target: HTMLElement): Page;
+// }
