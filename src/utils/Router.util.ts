@@ -28,7 +28,18 @@ export default class RouterUtil {
         }
     }
 
-    push(pageName: string) {
+    // history api 이용
+    //
+    push({ data={}, title='', path }: { data?: Object, title?: string, path: string }) {
+        history.pushState(data, title, path);
+        const currentPageInfo = this.pages.find(page => page.path === path);
+        
+        const page: any = currentPageInfo?.page;
+        const currentPage = new page(this.target, this);
+        currentPage.render();
+    }
+
+    push2(pageName: string) {
         window.location.hash = pageName;        
     }
 }

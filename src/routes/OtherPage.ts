@@ -5,10 +5,8 @@ export default class OtherPage extends Page {
     constructor($target: HTMLElement, private routerUtil: RouterUtil) {
         super($target);
         this.routerUtil = routerUtil;
-        console.log('asdf', this.routerUtil);
     }
     template() {
-        console.log('other');
         return (
         `
             <div>다른 페이지</div>
@@ -19,9 +17,10 @@ export default class OtherPage extends Page {
 
     _routing() {        
         const btn = document.querySelector('.other-button');        
+
         btn?.addEventListener('click', () => {    
             console.log('click');
-            this.routerUtil.push('/main');
+            this.routerUtil.push({ path: '/main' });
         });
     }
 }

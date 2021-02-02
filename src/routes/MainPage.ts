@@ -5,8 +5,6 @@ export default class MainPage extends Page {
     constructor($target: HTMLElement, private routerUtil: RouterUtil) {
         super($target);
         this.routerUtil = routerUtil;
-        
-        // this.mount();
     }
 
     template() {
@@ -22,23 +20,10 @@ export default class MainPage extends Page {
         console.log('mount');
         
         const btn = document.querySelector('.main-button');    
-        console.log('btn', btn);
-            
+        
         btn?.addEventListener('click', () => {    
             console.log('click');
-            this.routerUtil.push('/other');
+            this.routerUtil.push({ path: '/other' });
         });
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     console.log('load');
-            
-        //     const btn = document.querySelector('.main-button');    
-            
-            
-        //     btn?.addEventListener('click', () => {    
-        //         console.log('click');
-                
-        //         this.routerUtil.push('/other');
-        //     });
-        // });
     }
 }
