@@ -8,12 +8,13 @@ export default abstract class Page {
     constructor(private target: HTMLElement) {
         this.target = target;
     }
-    _routing(): void {}
     template() { return ''; }
     render() {
         this.target.innerHTML = this.template();
-        this._routing();
+        this._render();
     }
+
+    _render(): void {}
 }
 
 

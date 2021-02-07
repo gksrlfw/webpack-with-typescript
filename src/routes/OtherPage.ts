@@ -1,10 +1,12 @@
 import Page from "../core/Page";
-import RouterUtil from "../utils/Router.util";
+import Router from "../utils/Router.util";
 
 export default class OtherPage extends Page {
-    constructor($target: HTMLElement, private routerUtil: RouterUtil) {
+    private router: Router;
+    constructor(private $target: HTMLElement) {
         super($target);
-        this.routerUtil = routerUtil;
+        this.$target = $target;
+        this.router = new Router(this.$target);
     }
     template() {
         return (
@@ -15,12 +17,12 @@ export default class OtherPage extends Page {
         );
     }
 
-    _routing() {        
+    _render() {        
         const btn = document.querySelector('.other-button');        
 
         btn?.addEventListener('click', () => {    
             console.log('click');
-            this.routerUtil.push({ path: '/main' });
+            this.router.push({ path: '/main' });
         });
     }
 }

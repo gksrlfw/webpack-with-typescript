@@ -1,10 +1,12 @@
 import Page from "../core/Page";
-import RouterUtil from "../utils/Router.util";
+import Router from "../utils/Router.util";
 
 export default class MainPage extends Page {
-    constructor($target: HTMLElement, private routerUtil: RouterUtil) {
+    private router: Router;
+    constructor(private $target: HTMLElement) {
         super($target);
-        this.routerUtil = routerUtil;
+        this.$target=  $target;
+        this.router = new Router(this.$target);
     }
 
     template() {
@@ -16,14 +18,14 @@ export default class MainPage extends Page {
         );
     }
 
-    _routing() {
+    _render() {
         console.log('mount');
         
         const btn = document.querySelector('.main-button');    
         
         btn?.addEventListener('click', () => {    
             console.log('click');
-            this.routerUtil.push({ path: '/other' });
+            this.router.push({ path: '/other' });
         });
     }
 }

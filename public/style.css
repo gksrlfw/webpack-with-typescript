@@ -1,0 +1,21 @@
+/* body {
+    font-weight: normal !important;
+    font-style: normal;
+} */
+
+html {
+    box-sizing: border-box;
+    
+}
+* {
+    box-sizing: inherit;
+}
+
+/* Sidebar */
+/* 각 ts 파일에 넣음 */
+/* .sidebarStyle {
+    width: 16.25rem;
+    background: black;
+    height:100%;
+    position: fixed;
+} */

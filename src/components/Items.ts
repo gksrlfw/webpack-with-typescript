@@ -1,13 +1,14 @@
+import { html } from 'lit-html';
 import Component from "../core/Component";
-import RouterUtil from "../utils/Router.util";
+import Router from "../utils/Router.util";
 //https://junilhwang.github.io/TIL/Javascript/Design/Vanilla-JS-Component/#_2-%E1%84%8E%E1%85%AE%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA
 
 export default class Items extends Component {
     $state: any = { items: [] };
-    private routerUtil: RouterUtil;
-    constructor($target: any, routerUtil: RouterUtil) {
+    private router: Router;
+    constructor($target: any) {
         super($target);
-        this.routerUtil = routerUtil;
+        this.router = new Router(this.$target);
     }
     setup() {
       console.log('child: setup');
@@ -15,26 +16,27 @@ export default class Items extends Component {
       this.$state = { items: ['item1', 'item2'] };
     }
     template() {
-      console.log('child: temp');
         const { items } = this.$state;
-        return `
+        return html`
         <ul>
-        ${items.map((item: any, key: number) => `
-            <li>
-                ${item}
-                <button class="deleteBtn" data-index="${key}">삭제</button>
-            </li>
-        `).join('')}
+            ${items.map((item: any, key: number) => `
+                <li>
+                    ${item}
+                    <button class="deleteBtn" data-index="${key}">삭제</button>
+                </li>
+            `).join('')}
         </ul>
         <button class="addBtn">추가</button>
         <button class="main">main</button>
         <button class="other">other</button>
-      `
+        <div class="alert alert-primary" role="alert">
+            A simple primary alert—check it out!
+        </div>
+        `
     }
     // event는 각 하위요소에 다는것이 아니라, 컴포넌트의 target을 통해 지정한다
     // 따라서 render 할때마다 등록하지 않고, 컴포넌트가 생성되는 시점에만 이벤트를 등록하면 된다
     setEvent() {
-      console.log('child: eve');
         this.$target.addEventListener('click', (e: any) => {
             const items = [ ...this.$state.items];
             if(e.target.classList.contains('addBtn')) {
@@ -47,11 +49,11 @@ export default class Items extends Component {
             }
 
             if(e.target.classList.contains('main')) {
-                this.routerUtil.push({ path: '/main' });
+                this.router.push({ path: '/main' });
             }
 
             if(e.target.classList.contains('other')) {
-                this.routerUtil.push({ path: '/main' });
+                this.router.push({ path: '/main' });
             }
         });
     }
