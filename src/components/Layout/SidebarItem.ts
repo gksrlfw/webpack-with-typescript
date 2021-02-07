@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=hSm2q6u542M&t=733s
 import palette from "../../lib/palette";
 import { flask } from "../Icons/icon";
 
@@ -6,9 +7,8 @@ export default function SidebarItem () {
     sidebar.className = 'sidebarStyle';
     sidebar.style.cssText = sidebarStyle;    
     sidebar.appendChild(logo());
-    sidebar.appendChild(menu());
+    sidebar.appendChild(menu()); 
     
-
     // render(menu2(), sidebar);
     return sidebar;
 }
@@ -28,7 +28,7 @@ function menu() {
 
     const item = document.createElement('li');
     item.className = 'itemStyle';
-    item.style.cssText = itemStyle;
+    // item.style.cssText = itemStyle;
     item.innerHTML = flask;
 
     const category = document.createElement('span');
@@ -40,6 +40,7 @@ function menu() {
     menu.appendChild(item);
     return menu;
 }
+
 
 const sidebarStyle = `
     flex: 1;
@@ -59,7 +60,15 @@ const menuStyle = `
 `;
 
 const itemStyle = `
-    color: ${palette.cyan[600]};
+    border-radius: 0.5rem;
+    height: 3.75rem;  
+    display: flex;
+    align-items: center;
+    color: ${palette.blueGrey[500]};
+    li:hover {
+        background: ${palette.blueGrey[50]};
+    }
+    
 `;
 
 const categoryStyle = `

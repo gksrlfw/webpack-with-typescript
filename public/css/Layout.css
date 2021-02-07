@@ -1,0 +1,18 @@
+
+
+/* main style */
+
+/* sidebar style */
+
+/* sidebar item style */
+.itemStyle {
+    border-radius: 0.5rem;
+    height: 3.75rem;  
+    display: flex;
+    align-items: center;
+    color: gray;
+}
+
+.itemStyle:hover {
+    background: black;
+}
