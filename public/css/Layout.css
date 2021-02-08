@@ -1,18 +1,65 @@
 
 
 /* main style */
-
+.mainStyle {
+    padding-left: 2rem;
+    margin-left: 16.25rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 /* sidebar style */
+.sideStyle {
+    width: 16.25rem;
+    height: 100%;
+    position: fixed;
+    display: fixed;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+}
 
 /* sidebar item style */
+.menuStyle {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* 여백을 90정도로 -> 90/16 ??  */
+    margin-top: 5.625rem; 
+    margin-left: -1rem;
+}
+
 .itemStyle {
+    font-size: 1.125rem;
     border-radius: 0.5rem;
     height: 3.75rem;  
     display: flex;
     align-items: center;
-    color: gray;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
 }
 
 .itemStyle:hover {
-    background: black;
+    background: #cfd8dc;
 }
+
+.itemStyle:active {
+    background: #cfd8dc;
+    font-weight: bold;
+    color: #263238;
+}
+
+.categoryStyle {
+    font-size: 1.125rem;
+    margin-left: 1rem;
+}
+
+.sidebarStyle {
+    flex: 1;
+}
+
+.logoStyle {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+

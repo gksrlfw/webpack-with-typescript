@@ -7,40 +7,18 @@ export default class Router {
     constructor(private target: HTMLElement) {
         this.target = target;
         this.pages = pages;
-        
-        if(this.target && this.pages) { this._routing(); }
-    }
-
-    private _routing() {
-        // 라우터 객체가 생성되면 항상 해쉬 변화를 인지해서 특정 페이지를 렌더링해야한다
-        window.onhashchange = () => {
-            this.nowPage = window.location.hash.replace('#/', '');
-            
-            const currentPageInfo = this.pages.find(page => page.path === this.nowPage);
-            let currentPage;
-            if(currentPageInfo && currentPageInfo.page) {
-                const page: any = currentPageInfo.page;
-                currentPage = new page(this.target, this);
-            }
-
-            // 현재 선택된 페이지를 target에 넣어주면 페이지가 바뀌는 것처럼 된다
-            if(currentPage) currentPage.render();
-            
-        }
     }
 
     // history api 이용
-    //
     push({ data={}, title='', path }: { data?: Object, title?: string, path: string }) {
         history.pushState(data, title, path);
         const currentPageInfo = this.pages.find(page => page.path === path);
         
+        
         const page: any = currentPageInfo?.page;
+        if(!page) return;
         const currentPage = new page(this.target, this);
         currentPage.render();
     }
 
-    push2(pageName: string) {
-        window.location.hash = pageName;        
-    }
 }

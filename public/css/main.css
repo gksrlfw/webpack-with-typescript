@@ -11,6 +11,16 @@ html {
     box-sizing: inherit;
 }
 
+.main {
+    
+
+    padding-left: 2rem;
+    margin-left: 16.25rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+}
+
 /* Sidebar */
 /* 각 ts 파일에 넣음 */
 /* .sidebarStyle {
