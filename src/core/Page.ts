@@ -3,18 +3,21 @@
 //     render(): void;
 // }
 
+import { html, render } from "lit-html";
+
 
 export default abstract class Page {
-    constructor(private target: HTMLElement) {
-        this.target = target;
+    constructor(private $target: HTMLElement) {
+        this.$target = $target;
     }
-    template() { return ''; }
-    render() {
-        this.target.innerHTML = this.template();
-        this._render();
+    template() { return html``; }
+    renderer() {
+        // this.$target.innerHTML = this.template();
+        if(this.$target) render(this.template(), this.$target);
+        this._setInit();        
     }
 
-    _render(): void {}
+    _setInit(): void {}
 }
 
 

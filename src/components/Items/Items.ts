@@ -1,17 +1,14 @@
 import { html } from 'lit-html';
 import Component from "../../core/Component";
-import Router from "../../utils/Router.util";
+import { router } from '../../routes/Router';
 //https://junilhwang.github.io/TIL/Javascript/Design/Vanilla-JS-Component/#_2-%E1%84%8E%E1%85%AE%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA
 
 export default class Items extends Component {
     $state: any = { items: [] };
-    private router: Router;
     constructor($target: any) {
         super($target);
-        this.router = new Router(this.$target);
     }
     setup() {
-      console.log('child: setup');
       
       this.$state = { items: ['item1', 'item2'] };
     }
@@ -49,11 +46,11 @@ export default class Items extends Component {
             }
 
             if(e.target.classList.contains('main')) {
-                this.router.push({ path: '/main' });
+                router.push({ path: '/main' });
             }
 
             if(e.target.classList.contains('other')) {
-                this.router.push({ path: '/main' });
+                router.push({ path: '/main' });
             }
         });
     }

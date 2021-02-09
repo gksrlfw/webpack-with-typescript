@@ -6,6 +6,7 @@
     margin-left: 16.25rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    background: whitesmoke;
 }
 /* sidebar style */
 .sideStyle {
@@ -43,10 +44,13 @@
     background: #cfd8dc;
 }
 
-.itemStyle:active {
+.itemStyleActive {
     background: #cfd8dc;
     font-weight: bold;
     color: #263238;
+}
+.itemStyle:active {
+    
 }
 
 .categoryStyle {
