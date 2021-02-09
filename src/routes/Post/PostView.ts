@@ -18,7 +18,7 @@ export default class LabView extends Page {
     _setInit() {
         const btn = document.querySelector('.main-button');    
         btn?.addEventListener('click', () => {    
-            router.push({ path: '/music' });
+            router.push({ title: 'Music', path: '/music' });
         });
     }
 }

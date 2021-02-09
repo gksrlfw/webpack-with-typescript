@@ -24,17 +24,17 @@ export default class MainView extends Page {
             const _main = document.querySelector('._main');    
         
             _main?.addEventListener('click', () => {                    
-                router.push({ path: '/' });
+                router.push({ title: 'main!!!', path: '/' });
             });
 
             const _music = document.querySelector('._music');    
             _music?.addEventListener('click', () => {    
-                router.push({ path: '/music' });
+                router.push({ title: 'Music', path: '/music' });
             });
 
             const _post = document.querySelector('._post');    
             _post?.addEventListener('click', () => {    
-                router.push({ path: '/post' });
+                router.push({ title: 'Post', path: '/post' });
             });
         }, 100);
     }

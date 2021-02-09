@@ -20,7 +20,7 @@ function logo() {
     logo.style.color = palette.blueGrey[900];
 
     logo.addEventListener('click', _ => {
-        router.push({ path: '/' });
+        router.push({ title: 'main!!!', path: '/' });
     });
     
     return logo;
@@ -53,7 +53,9 @@ function menu() {
         const currentCategory = categories.find((c) => {
             return c.category === currentName;
         });
+
         router.push({ title: currentCategory.category, path: currentCategory.to });
+
         if(oldTarget) (<HTMLElement>oldTarget).classList.remove('itemStyleActive');
         (<HTMLElement>currentTarget).classList.add('itemStyleActive');
         oldTarget = currentTarget;        
